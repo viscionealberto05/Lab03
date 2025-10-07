@@ -28,9 +28,15 @@ def main():
             while True:
                 try:
                     file_path = input("Inserisci il path del file da caricare: ").strip()
-                    lista_auto = autonoleggio.carica_file_automobili(file_path)
-                    for automobile in lista_auto:
-                        print(automobile)
+                    autonoleggio.carica_file_automobili(file_path)
+
+                    #COMANDO DI PROVA: STAMPA AUTOMOBILI LETTE DA FILE
+
+                    #lista_auto = autonoleggio.carica_file_automobili(file_path)
+                    #for automobile in lista_auto:
+                        #print(automobile)
+
+
                     break
                 except Exception as e:
                     print(e)
@@ -44,13 +50,14 @@ def main():
             except ValueError:
                 print("Errore: inserire valori numerici validi per anno, pagine e sezione.")
                 continue
-            #automobile = autonoleggio.aggiungi_automobile(marca, modello, anno, posti)
-            #print(f"Automobile aggiunta: {automobile}")
 
-            lista_auto = autonoleggio.aggiungi_automobile(marca, modello, anno, posti)
+            autonoleggio.aggiungi_automobile(marca, modello, anno, posti)
 
-            for automobile in lista_auto:
-                print(automobile)
+            #COMANDO DI PROVA: STAMPA RISULTATO INSERIMENTO MANUALE
+            #lista_auto = autonoleggio.aggiungi_automobile(marca, modello, anno, posti)
+
+            #for automobile in lista_auto:
+                #print(automobile)
 
 
         elif scelta == "4":
