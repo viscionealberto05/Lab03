@@ -1,5 +1,7 @@
 from autonoleggio import Autonoleggio
 from datetime import datetime
+from automobile import Automobile
+
 
 def menu():
     print("\n--- MENU AUTONOLEGGIO ---")
@@ -20,13 +22,15 @@ def main():
 
         if scelta == "1":
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
-            # TODO: Aggiorna responsabile nel sistema
+            autonoleggio.cambia_responsabile(nuovo_responsabile)
 
         elif scelta == "2":
             while True:
                 try:
                     file_path = input("Inserisci il path del file da caricare: ").strip()
-                    autonoleggio.carica_file_automobili(file_path)
+                    lista_auto = autonoleggio.carica_file_automobili(file_path)
+                    for automobile in lista_auto:
+                        print(automobile)
                     break
                 except Exception as e:
                     print(e)
@@ -40,8 +44,14 @@ def main():
             except ValueError:
                 print("Errore: inserire valori numerici validi per anno, pagine e sezione.")
                 continue
-            automobile = autonoleggio.aggiungi_automobile(marca, modello, anno, posti)
-            print(f"Automobile aggiunta: {automobile}")
+            #automobile = autonoleggio.aggiungi_automobile(marca, modello, anno, posti)
+            #print(f"Automobile aggiunta: {automobile}")
+
+            lista_auto = autonoleggio.aggiungi_automobile(marca, modello, anno, posti)
+
+            for automobile in lista_auto:
+                print(automobile)
+
 
         elif scelta == "4":
             automobili_ordinate = autonoleggio.automobili_ordinate_per_marca()
