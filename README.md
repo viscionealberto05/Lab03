@@ -24,6 +24,7 @@ A1,Toyota,Yaris,2019,5
 A2,Ford,Focus,2020,
 A3,Fiat,500,2018,4
 A4,Volkswagen,Golf,2021,5
+...
 ```
 
 ### Implementazione
